@@ -104,7 +104,6 @@ df.to_csv('revenue_usage.csv', index=True)
 statuses = ['success','fail']
 
 def get_orders():
-
 	return revenue_mrr()
 
 df = pd.DataFrame(columns=['account_id', 'amount_exc_tax', 'amount_incl_tax', 'created_at', 'status'])
@@ -115,7 +114,6 @@ for i in range(0,100):
 	df.loc[i] = [account_id, amount_exc_tax, amount_incl_tax, created_at, status]
 
 df.to_csv('orders.csv', index=True)
-
 
 
 #=======#=======#=======#=======#=======#=======#=======#=======#=======#=======#
