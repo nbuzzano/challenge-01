@@ -3,8 +3,7 @@
 --DROP TABLE IF EXISTS accounts;
 DROP TABLE accounts CASCADE;
 CREATE TABLE accounts (id SERIAL PRIMARY KEY, plan varchar, country varchar);
--- should use a relative path like ~/sirena-assessment/assessment01/accounts.csv
-COPY accounts FROM '/Users/nicolasbuzzano/Documents/github/sirena-assessment/assessment01/accounts.csv' CSV HEADER;
+\COPY accounts FROM 'data/accounts.csv' CSV HEADER;
 
 /* ========+========+========+========+========+========+========+ */
 
@@ -16,8 +15,7 @@ CREATE TABLE revenue_mrr (
 	  	REFERENCES accounts(id)
 	  	ON DELETE SET NULL
 	);
--- should use a relative path like ~/sirena-assessment/assessment01/accounts.csv
-COPY revenue_mrr FROM '/Users/nicolasbuzzano/Documents/github/sirena-assessment/assessment01/revenue_mrr.csv' CSV HEADER;
+\COPY revenue_mrr FROM 'data/revenue_mrr.csv' CSV HEADER;
 
 /* ========+========+========+========+========+========+========+ */
 
@@ -29,8 +27,7 @@ CREATE TABLE revenue_usage (
 	  	REFERENCES accounts(id)
 	  	ON DELETE SET NULL
 	);
--- should use a relative path like ~/sirena-assessment/assessment01/accounts.csv
-COPY revenue_usage FROM '/Users/nicolasbuzzano/Documents/github/sirena-assessment/assessment01/revenue_usage.csv' CSV HEADER;
+\COPY revenue_usage FROM 'data/revenue_usage.csv' CSV HEADER;
 
 /* ========+========+========+========+========+========+========+ */
 
@@ -43,8 +40,7 @@ CREATE TABLE orders (
 	  	REFERENCES accounts(id)
 	  	ON DELETE SET NULL
 	);
--- should use a relative path like ~/sirena-assessment/assessment01/accounts.csv
-COPY orders FROM '/Users/nicolasbuzzano/Documents/github/sirena-assessment/assessment01/orders.csv' CSV HEADER;
+\COPY orders FROM 'data/orders.csv' CSV HEADER;
 
 /* ========+========+========+========+========+========+========+ */
 

@@ -3,6 +3,19 @@ from datetime import datetime, timedelta
 import random
 import time
 import pandas as pd
+import os
+
+def create_data_folder():
+	path = 'data'
+	if not os.path.exists(path):
+            try:
+                os.makedirs(path)
+            except OSError as e:
+                if e.errno != errno.EEXIST:
+                    raise
+
+create_data_folder()
+
 
 def str_time_prop(start, end, format, prop):
     """Get a time at a proportion of a range of two formatted times.
@@ -59,7 +72,7 @@ for p,c in generate_accounts():
 	df.loc[i] = [p,c]
 	i=i+1
 
-df.to_csv('accounts.csv', index=True)
+df.to_csv('data/accounts.csv', index=True)
 
 #=======#=======#=======#=======#=======#=======#=======#=======#=======#=======#
 
@@ -84,7 +97,7 @@ for i in range(0,100):
 	account_id, amount_exc_tax, amount_incl_tax, created_at = revenue_mrr()
 	df.loc[i] = [account_id, amount_exc_tax, amount_incl_tax, created_at]
 
-df.to_csv('revenue_mrr.csv', index=True)
+df.to_csv('data/revenue_mrr.csv', index=True)
 
 #=======#=======#=======#=======#=======#=======#=======#=======#=======#=======#
 
@@ -97,7 +110,7 @@ for i in range(0,100):
 	account_id, amount_exc_tax, amount_incl_tax, created_at = revenue_usage()
 	df.loc[i] = [account_id, amount_exc_tax, amount_incl_tax, created_at]
 
-df.to_csv('revenue_usage.csv', index=True)
+df.to_csv('data/revenue_usage.csv', index=True)
 
 #=======#=======#=======#=======#=======#=======#=======#=======#=======#=======#
 
@@ -113,7 +126,7 @@ for i in range(0,100):
 	status = random.choice(statuses)
 	df.loc[i] = [account_id, amount_exc_tax, amount_incl_tax, created_at, status]
 
-df.to_csv('orders.csv', index=True)
+df.to_csv('data/orders.csv', index=True)
 
 
 #=======#=======#=======#=======#=======#=======#=======#=======#=======#=======#
