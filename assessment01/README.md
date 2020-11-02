@@ -9,11 +9,11 @@
 - pg_ctl -D /usr/local/var/postgres stop
 
 #### First steps:
-1. `python generator.py`
+1. `python generator.py`(creates the data that postgres db'll consume)
 2. `createdb <mydatabasename>`
-3. `psql -d <mydatabasename> -a -f init.sql`
+3. `psql -d <mydatabasename> -a -f init.sql` (creates db tables consuming data created by generator file)
 
-Now you just can run `psql -d <mydatabasename> -a -f <task-file>.sql` in order to query the db. 
+Now you can go to `queries` folder and just run `psql -d <mydatabasename> -a -f <task-file>.sql` in order to query the db. 
   
 #### More info:
 - postgres (PostgreSQL) 13.0
