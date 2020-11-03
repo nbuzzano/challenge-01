@@ -1,11 +1,12 @@
 import json
 import inspect
+import os
 
 class Logger:
 	#static vars
 	config_file = ''
 	env_file = ''
-	current_env = 'dev'#should get from OS env !!!
+	current_env = os.environ['CURRENT_ENV']
 
 	#instance vars
 	current_config_item = None
@@ -19,6 +20,19 @@ class Logger:
 		Logger.env_file = env_file
 		Logger.check_env_format()
 
+		#if everything is ok, create logger folder.
+		Logger.create_logs_folder()
+
+
+	@staticmethod
+	def create_logs_folder():
+			path = 'logs' + '/' + Logger.current_env 
+			if not os.path.exists(path):
+				try:
+					os.makedirs(path)
+				except OSError as e:
+					if e.errno != errno.EEXIST:
+						raise
 
 	@staticmethod
 	def check_env_format():
@@ -60,6 +74,7 @@ class Logger:
 			config_items = json.load(config_file)
 			config_item = config_items[logger_name]
 
+			#creating a Logger instance and setting the according config.
 			logger = Logger()
 			logger.current_config_item = config_item
 			return logger
@@ -72,16 +87,28 @@ class Logger:
 			level = self.current_config_item['level']
 			level_tag = self.build_tag(level)
 
+			#getting some metadata to create the log message.
 			calling_file = inspect.stack()[1][1] #getting caller file
 			calling_function = inspect.stack()[1][3] #getting caller function
 			file_tag, function_tag = self.build_tag(calling_file), self.build_tag(calling_function)
 			
+			#print and write to log file
 			log_msg = level_tag + file_tag + function_tag + log_text
 			print(log_msg)
-			# Also write logs to an output file
 
-	
+			#writing down message on the current env folder.
+			log_filename = self.current_config_item['filename']
+			with open('logs/' + Logger.current_env + '/' + log_filename, 'a') as log_file:
+				log_file.write(log_msg + '\n')
+
+			return log_msg
+
 	def should_log(self):
+		"""
+			Using the log_relevance list to check if the level of this instance
+			is lower or higher than the level of the current enviroment.
+			If is lower shouldn't log, if it's equal or higher it should.
+		"""
 		logger_level = self.current_config_item['level']
 		current_env_key = Logger.current_env
 
@@ -101,12 +128,4 @@ class Logger:
 	
 	def build_tag(self, tag):
 		return '[' + tag + '] '
-
-
-def test():
-	Logger.set_configs('log_config.txt', 'logging_levels.txt')
-	test_logger = Logger.get_logger('info_logger')
-	test_logger.log('log certain event')
-
-test()
 

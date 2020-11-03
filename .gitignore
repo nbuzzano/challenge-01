@@ -2,3 +2,13 @@
 *.csv
 *.txt
 tests.sql
+
+assessment02/notebooks/.ipynb_checkpoints/
+assessment02/notebooks/logs/
+
+assessment02/sirena_utils/build/
+assessment02/sirena_utils/dist/
+assessment02/sirena_utils/sirena_utils.egg-info/
+
+assessment02/tests/__pycache__/
+assessment02/tests/logs/
