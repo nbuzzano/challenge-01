@@ -1,0 +1,5 @@
+{
+	"dev": "INFO",
+	"stage": "WARNING",
+	"production": "ERROR"
+}

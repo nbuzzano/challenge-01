@@ -1,0 +1,14 @@
+{
+	"debug_logger":{
+			"level": "DEBUG",
+			"filename": "logfile-debug.log"
+		},
+	"info_logger":{
+			"level": "INFO",
+			"filename": "logfile-info.log"
+		},
+	"warning_logger":{
+			"level": "WARNING",
+			"filename": "logfile-warning.log"
+		}
+}
