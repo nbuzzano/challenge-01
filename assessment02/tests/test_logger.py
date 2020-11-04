@@ -15,7 +15,7 @@ def test_logger_tool_warning():
 	"""
 
 	config_path = 'config/'
-	Logger.set_configs(config_path + 'log_config.txt', config_path + 'logging_levels.txt')
+	Logger.set_configs(config_path + 'log_config.json', config_path + 'logging_levels.json')
 	test_logger = Logger.get_logger('warning_logger')
 	log_msg = 'log certain event'
 	output = test_logger.log(log_msg)
@@ -35,7 +35,7 @@ def test_logger_tool_debug():
 	"""
 	
 	config_path = 'config/'
-	Logger.set_configs(config_path + 'log_config.txt', config_path + 'logging_levels.txt')
+	Logger.set_configs(config_path + 'log_config.json', config_path + 'logging_levels.json')
 	test_logger = Logger.get_logger('debug_logger')
 	log_msg = 'log certain event'
 	output = test_logger.log(log_msg)
@@ -53,7 +53,7 @@ def test_logger_tool_info():
 	"""
 
 	config_path = 'config/'
-	Logger.set_configs(config_path + 'log_config.txt', config_path + 'logging_levels.txt')
+	Logger.set_configs(config_path + 'log_config.json', config_path + 'logging_levels.json')
 	test_logger = Logger.get_logger('info_logger')
 	log_msg = 'log certain event'
 	output = test_logger.log(log_msg)
