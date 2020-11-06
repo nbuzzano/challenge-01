@@ -1,4 +1,8 @@
 *.csv
+*.pdf
+*.txt
+*.pyc
+
 tests.sql
 assessment01/commands.txt
 
@@ -13,3 +17,5 @@ assessment02/sirena_utils/sirena_utils.egg-info/
 assessment02/tests/__pycache__/
 assessment02/tests/logs/
 !assessment02/tests/config/
+
+assessment03/.ipynb_checkpoints/
