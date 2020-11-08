@@ -8,6 +8,7 @@ class APIHelper:
 	
 	@staticmethod
 	def get(url):
+		print('fetching ' + url)
 		resp = requests.get(url)
 		if resp.status_code != 200:
 		    raise ApiError('GET ' + url + '/ {}'.format(resp.status_code))
