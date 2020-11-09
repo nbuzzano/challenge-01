@@ -25,6 +25,12 @@ def fetch_all():
 	print('fetching owid_covid_data DONE')
 	print('')
 
+	print('fetching fetch_covid_owid_csv...')
+	fetch_covid_owid_csv()
+	print('fetching fetch_covid_owid_csv DONE')
+	print('')
+	
+
 
 def fetch_countries_and_continents():
 	url = 'https://pkgstore.datahub.io/JohnSnowLabs/country-and-continent-codes-list/country-and-continent-codes-list-csv_csv/data/b7876b7f496677669644f3d1069d3121/country-and-continent-codes-list-csv_csv.csv'
@@ -34,6 +40,9 @@ def fetch_countries_and_continents():
 	df = pd.DataFrame(columns=['continent_code', 'country_code'])
 	df['continent_code'] = data.Continent_Code
 	df['country_code'] = data.Two_Letter_Country_Code
+	df['continent_name'] = data.Continent_Name
+	df['country_name'] = data.Country_Name
+	
 	df = df.sort_values('continent_code')
 	df = df.dropna()
 
@@ -187,6 +196,15 @@ def fetch_owid_covid_data():
 			df_owid_covid[column_name] = pd.to_numeric(df_owid_covid[column_name])
 
 	df_owid_covid.to_csv('owid_covid_data.csv')
+
+
+def fetch_covid_owid_csv():
+	filename = 'covid-data.csv'
+	data_url = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
+	data_content = requests.get(data_url).content
+	csv_file = open(filename, 'wb')
+	csv_file.write(data_content)
+	csv_file.close()
 
 
 fetch_all()
