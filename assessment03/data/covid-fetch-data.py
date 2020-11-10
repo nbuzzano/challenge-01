@@ -6,12 +6,12 @@ import csv
 
 def fetch_all():
 	print('fetching countries_and_continents...')
-	#fetch_countries_and_continents()
+	fetch_countries_and_continents()
 	print('fetching countries_and_continents DONE')
 	print('')
 	
 	print('fetching covid_cases...')
-	#fetch_covid_cases()
+	fetch_covid_cases()
 	print('fetching covid_cases DONE')
 	print('')
 	
@@ -21,12 +21,12 @@ def fetch_all():
 	print('')
 
 	print('fetching owid_covid_data...')
-	#fetch_owid_covid_data()
+	fetch_owid_covid_data()
 	print('fetching owid_covid_data DONE')
 	print('')
 
 	print('fetching fetch_covid_owid_csv...')
-	#fetch_covid_owid_csv()
+	fetch_covid_owid_csv()
 	print('fetching fetch_covid_owid_csv DONE')
 	print('')
 	
