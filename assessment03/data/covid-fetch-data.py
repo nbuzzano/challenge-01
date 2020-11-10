@@ -6,12 +6,12 @@ import csv
 
 def fetch_all():
 	print('fetching countries_and_continents...')
-	fetch_countries_and_continents()
+	#fetch_countries_and_continents()
 	print('fetching countries_and_continents DONE')
 	print('')
 	
 	print('fetching covid_cases...')
-	fetch_covid_cases()
+	#fetch_covid_cases()
 	print('fetching covid_cases DONE')
 	print('')
 	
@@ -21,12 +21,12 @@ def fetch_all():
 	print('')
 
 	print('fetching owid_covid_data...')
-	fetch_owid_covid_data()
+	#fetch_owid_covid_data()
 	print('fetching owid_covid_data DONE')
 	print('')
 
 	print('fetching fetch_covid_owid_csv...')
-	fetch_covid_owid_csv()
+	#fetch_covid_owid_csv()
 	print('fetching fetch_covid_owid_csv DONE')
 	print('')
 	
@@ -101,7 +101,7 @@ def fetch_covid_summaries():
 			return None
 
 
-	columns = ['country_code', 'deaths_percentage', 'confirmed_percentage', 'recovered_percentage', 'deaths', 'confirmed', 'recovered']
+	columns = ['country_name', 'country_code', 'deaths_percentage', 'confirmed_percentage', 'recovered_percentage', 'deaths', 'confirmed', 'recovered']
 	df = pd.DataFrame(columns=columns)
 
 	i=0
@@ -111,6 +111,7 @@ def fetch_covid_summaries():
 	for location in response["locations"]:
 		country_population = location['country_population']
 		country_code = location['country_code']
+		country_name = location['country']
 		latest = location["latest"]        
 
 		confirmed = latest['confirmed']
@@ -120,7 +121,7 @@ def fetch_covid_summaries():
 		confirmed_percentage = calculate_percentage(confirmed, country_population)
 		recovered_percentage = calculate_percentage(recovered, country_population)
 		deaths_percentage = calculate_percentage(deaths, country_population)
-		df.loc[i] = [country_code, deaths_percentage, confirmed_percentage, recovered_percentage, deaths, confirmed, recovered]
+		df.loc[i] = [country_name, country_code, deaths_percentage, confirmed_percentage, recovered_percentage, deaths, confirmed, recovered]
 		i=i+1
 
 	df.to_csv('covid_summaries.csv')
