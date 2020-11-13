@@ -5,20 +5,20 @@
 *.ipynb_checkpoints/
 
 tests.sql
-assessment01/commands.txt
+assessment01-postgreSQL/commands.txt
 
-assessment02/notebooks/.ipynb_checkpoints/
-assessment02/notebooks/logs/
-!assessment02/notebooks/config/
+assessment02-python/notebooks/.ipynb_checkpoints/
+assessment02-python/notebooks/logs/
+!assessment02-python/notebooks/config/
 
-assessment02/sirena_utils/build/
-assessment02/sirena_utils/dist/
-assessment02/sirena_utils/sirena_utils.egg-info/
+assessment02-python/comapany_utils/build/
+assessment02-python/comapany_utils/dist/
+assessment02-python/comapany_utils/comapany_utils.egg-info/
 
-assessment02/tests/__pycache__/
-assessment02/tests/logs/
-!assessment02/tests/config/
+assessment02-python/tests/__pycache__/
+assessment02-python/tests/logs/
+!assessment02-python/tests/config/
 
-assessment03/.ipynb_checkpoints/
-assessment03/notebooks/.ipynb_checkpoints/
-assessment03/private/
+assessment03-covid19-data-analysis/.ipynb_checkpoints/
+assessment03-covid19-data-analysis/notebooks/.ipynb_checkpoints/
+assessment03-covid19-data-analysis/private/
