@@ -1,5 +1,5 @@
 *.csv
-*.pdf
+#*.pdf
 *.txt
 *.pyc
 
