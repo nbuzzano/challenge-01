@@ -1,7 +1,8 @@
 *.csv
-#*.pdf
+*.pdf
 *.txt
 *.pyc
+*.ipynb_checkpoints/
 
 tests.sql
 assessment01/commands.txt
