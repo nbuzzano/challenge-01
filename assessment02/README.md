@@ -1,10 +1,10 @@
 # Assessment02
 
 #### Installation:
-Go to `sirena_utils` folder and run `python setup.py install` to install the package on your current python env.
+Go to `company_utils` folder and run `python setup.py install` to install the package on your current python env.
 
 #### Use case:
-Go to `notebooks` folder and checkout an use case of how `sirena_utils.logger` can be used.
+Go to `notebooks` folder and checkout an use case of how `company_utils.logger` can be used.
 
 #### Run tests:
 Go to the `tests` folder and run `pytest` command, this'll run the tests inside `test_logger.py`

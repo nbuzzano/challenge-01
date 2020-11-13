@@ -4,7 +4,7 @@ import os
 #env value should be set using pycharm for example.
 os.environ['CURRENT_ENV'] = 'dev'
 
-from sirena_utils.logger import Logger
+from company_utils.logger import Logger
 
 #===========+===========+===========+===========+===========#
 
